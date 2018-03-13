@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+
+</head>
+
+<body>
+    <div class="container" id="body-container">
+        <div class="row" id="header-row">
+            <div class="jumbotron">
+                <h1 class="display-4">Employee Data Management</h1>
+                <p class="lead">
+                    A Comprehensive Directory of Employee Billable Hours
+                </p>
+            </div>
+        </div>
+        <div class="row" id="table-row">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Employee Name</th>
+                        <th scope="col">Role</th>
+                        <th scope="col">Start Date</th>
+                        <th scope="col">Months Worked</th>
+                        <th scope="col">Monthly Rate ($)</th>
+                        <th scope="col">Total Billed ($)</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                </tbody>
+            </table>
+        </div>
+        <div class="row" id="form-title-row">
+                <h2>Add Employee</h2>
+        </div>
+        <div class="row" id="form-row">         
+            <label for="employee-name">Employee Name</label>
+            <input class="form-control" type="text" placeholder="John Doe" id="employee-name">
+            <label for="role">Role</label>
+            <input class="form-control" type="text" placeholder="Developer" id="role">
+            <label for="start-date">Start Date</label>
+            <input class="form-control" type="text" placeholder="DD/MM/YYYY" id="start-date">
+            <label for="monthly-rate">Monthly Rate</label>
+            <input class="form-control" type="text" placeholder="4000" id="monthly-rate">
+        </div>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+        <script src="./assets/javascript/Employees.js"></script>
+        <button class="btn btn-primary btn-lg" id="submit-button">SUBMIT</button>
+    </div>
+</body>
+
+</html>
