@@ -20,8 +20,22 @@ dbRef.on('child_added', function(childSnapshot){
   var date = snap.StartDate;
   date = date.replace("-","/");
   date = date.replace("-","/");
+  var dateUnix = moment(convertedDate).format("X");
+  var dateFormat = "YYYY/MM/DD";
+  var convertedDate = moment(date, dateFormat);
+  var monthsWorked = moment(convertedDate).diff(moment(), "months") * -1;
+  var monthlyRate = parseInt(snap.MonthlyRate);
+  console.log(convertedDate._i);
+  console.log(dateUnix);
+  console.log(moment(convertedDate).toNow());
+  console.log(monthsWorked);
+  console.log(monthlyRate);
+  var totalBilled = monthsWorked * monthlyRate; 
+  console.log(totalBilled);
+
+
  
- var row = $("<tr>").attr({
+  var row = $("<tr>").attr({
    class : "info-row"
  });
  var nameCell = $("<td>").attr({
@@ -39,12 +53,16 @@ dbRef.on('child_added', function(childSnapshot){
  var rateCell = $("<td>").attr({
    class: "info-cell"
  });
+ var billedCell = $("<td>").attr({
+   class: "info-cell"
+ });
  $(nameCell).text(snap.Name);
   $(roleCell).text(snap.Role);
   $(startCell).text(date);
+  $(monthsCell).text(monthsWorked);
   $(rateCell).text(snap.MonthlyRate);
-
-  $(row).append(nameCell, roleCell, startCell, monthsCell, rateCell);
+$(billedCell).text(totalBilled);
+  $(row).append(nameCell, roleCell, startCell, monthsCell, rateCell, billedCell);
   $("#table-body").append(row);
 
   });
