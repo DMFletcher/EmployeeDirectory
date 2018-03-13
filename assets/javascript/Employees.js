@@ -17,7 +17,10 @@ var employees;
 // Initialize Global Variables
 dbRef.on('child_added', function(childSnapshot){
   var snap = childSnapshot.val();
-  console.log(childSnapshot.val().Name);
+  var date = snap.StartDate;
+  date = date.replace("-","/");
+  date = date.replace("-","/");
+ 
  var row = $("<tr>").attr({
    class : "info-row"
  });
@@ -38,7 +41,7 @@ dbRef.on('child_added', function(childSnapshot){
  });
  $(nameCell).text(snap.Name);
   $(roleCell).text(snap.Role);
-  $(startCell).text(snap.StartDate);
+  $(startCell).text(date);
   $(rateCell).text(snap.MonthlyRate);
 
   $(row).append(nameCell, roleCell, startCell, monthsCell, rateCell);
