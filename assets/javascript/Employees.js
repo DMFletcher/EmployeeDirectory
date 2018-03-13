@@ -12,27 +12,50 @@
 // Initialize Firebase
 
 var database = firebase.database();
-var dbRef = database.ref();
+var dbRef = database.ref('Employees/');
 var employees;
 // Initialize Global Variables
-dbRef.on('child_added', function(snapshot){
-  var employeesNum = Object.keys(snapshot.val().Employees).length;
-  if (employeeNum !== 0){
-    for (var i = 0; i <employeesNum; i++){
-      
-    }
-  }
-});
+dbRef.on('child_added', function(childSnapshot){
+  var snap = childSnapshot.val();
+  console.log(childSnapshot.val().Name);
+ var row = $("<tr>").attr({
+   class : "info-row"
+ });
+ var nameCell = $("<td>").attr({
+   class : "info-cell"
+ });
+ var roleCell = $("<td>").attr({
+   class : "info-cell"
+ });
+ var startCell = $("<td>").attr({
+   class: "info-cell"
+ });
+ var monthsCell = $("<td>").attr({
+   class: "info-cell"
+ });
+ var rateCell = $("<td>").attr({
+   class: "info-cell"
+ });
+ $(nameCell).text(snap.Name);
+  $(roleCell).text(snap.Role);
+  $(startCell).text(snap.StartDate);
+  $(rateCell).text(snap.MonthlyRate);
+
+  $(row).append(nameCell, roleCell, startCell, monthsCell, rateCell);
+  $("#table-body").append(row);
+
+  });
+  
 
 var employee, role, startDate, monthlyRate;
-alert("hi");
+
 $("#submit-button").on('click', function(e){
     employee = $("#employee-name").val().trim();
     role = $("#role").val().trim();
     startDate = $("#start-date").val().trim();
     monthlyRate = $("#monthly-rate").val().trim();
     
-  alert();
+  alert(employee);
 
     database.ref('Employees/').push({
       Name: employee,
